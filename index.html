@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Grade</title>
+
+    <style>
+ 
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(115, 191, 206, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #2C3E50;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #16A085;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .course-mark {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #eaf5f3;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Button Styles */
+        button {
+            padding: 10px 20px;
+            background-color: #207463;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1ABC9C;
+        }
+
+        /* Footer style */
+        footer {
+            font-size: 0.9rem;
+            margin-top: 40px;
+            color: #777;
+        }
+
+        footer a {
+            color: #16A085;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        
+        
+    </style>
+
+</head>
+<body>
+    <script>
+        // Get the number of courses from the user
+        let numOfCourses = parseInt(prompt("Enter the  number of courses:"));
+
+        // Initialize an empty array to store course marks
+        let courseMarks = [];
+
+        // Initialize a variable to store the total of all marks
+        let total = 0;
+
+        // Loop to get course marks from the user
+        for (let i = 0; i < numOfCourses; i++) {
+            let mark = parseFloat(prompt(`Enter the mark for course ${i + 1}:`));
+            courseMarks.push(mark);
+            total += mark;
+        }
+
+        // Display all course marks
+        document.write("<h2>Your course marks are:</h2>");
+        for (let i = 0; i < courseMarks.length; i++) {
+            document.write(`Course ${i + 1}: ${courseMarks[i]}<br>`);
+        }
+
+        // Calculate the average
+        let average = total / numOfCourses;
+
+        // Round the average to 2 decimal points
+        let roundedAverage = average.toFixed(2);
+
+        // Determine the grade based on the average
+        let grade;
+        if (average >= 90 && average <= 100) {
+            grade = "A+";
+        } else if (average >= 80 && average < 90) {
+            grade = "B";
+        } else if (average >= 70 && average < 80) {
+            grade = "C";
+        } else if (average >= 60 && average < 70) {
+            grade = "D";
+        } else if (average < 60) {
+            grade = "F";
+        } else {
+            grade = "Invalid";
+        }
+
+        // Display the final result
+        if (grade !== "Invalid") {
+            document.write(`<h2>Your final average is ${roundedAverage}. Your grade is ${grade}</h2>`);
+        } else {
+            document.write("<h2>Sorry, all the marks have to be from minimum 0 to maximum 100!</h2>");
+        }
+    </script>
+</body>
+</html>
